@@ -2,6 +2,7 @@
 <resources>
     <color name="orange_FB3C00">#FB3C00</color>
     <color name="orange_FFBB33">#FFBB33</color>
+    <color name="orange_D66607">#D66607</color>
 
     <color name="gray_999999">#999999</color>
 
@@ -11,5 +12,7 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+
     <color name="white">#FFFFFFFF</color>
+    <color name="white_ECE9E6">#ECE9E6</color>
 </resources>
