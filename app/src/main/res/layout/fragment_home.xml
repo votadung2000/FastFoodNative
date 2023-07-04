@@ -1,15 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/_15sdp"
     tools:context=".fragment.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Home" />
+        android:id="@+id/home_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_28sdp"
+        android:text="Find \nYour \nBest Food!"
+        android:textColor="@color/brown_4F4142"
+        android:textSize="@dimen/_28ssp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
-</FrameLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_open"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/svg_menu"
+        app:backgroundTint="@color/orange_cc3a00"
+        app:borderWidth="0dp"
+        app:elevation="@dimen/_4sdp"
+        app:fabCustomSize="@dimen/_35sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/home_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/home_title"
+        app:tint="@color/brown_4F4142" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_close"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/svg_close"
+        android:visibility="invisible"
+        app:backgroundTint="@color/orange_cc3a00"
+        app:borderWidth="0dp"
+        app:elevation="@dimen/_4sdp"
+        app:fabCustomSize="@dimen/_35sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/home_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/home_title"
+        app:tint="@color/orange_dd3d00" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_account"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginEnd="@dimen/_32sdp"
+        android:layout_marginBottom="@dimen/_6sdp"
+        android:backgroundTint="@color/white"
+        android:visibility="invisible"
+        app:borderWidth="0dp"
+        app:elevation="@dimen/_4sdp"
+        app:fabCustomSize="@dimen/_35sdp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toTopOf="@+id/fab_close"
+        app:layout_constraintEnd_toEndOf="@+id/fab_close"
+        app:layout_constraintStart_toStartOf="@+id/fab_close"
+        app:srcCompat="@drawable/svg_person"
+        app:tint="@color/brown_4F4142" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_favorite"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginEnd="@dimen/_6sdp"
+        android:backgroundTint="@color/white"
+        android:visibility="invisible"
+        app:borderWidth="0dp"
+        app:elevation="@dimen/_4sdp"
+        app:fabCustomSize="@dimen/_35sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/fab_close"
+        app:layout_constraintEnd_toStartOf="@+id/fab_close"
+        app:layout_constraintTop_toTopOf="@+id/fab_close"
+        app:srcCompat="@drawable/svg_favorite"
+        app:tint="@color/brown_4F4142" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_cart"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginTop="@dimen/_6sdp"
+        android:layout_marginEnd="@dimen/_32sdp"
+        android:backgroundTint="@color/white"
+        android:visibility="invisible"
+        app:borderWidth="0dp"
+        app:elevation="@dimen/_4sdp"
+        app:fabCustomSize="@dimen/_35sdp"
+        app:layout_constraintEnd_toEndOf="@+id/fab_close"
+        app:layout_constraintStart_toStartOf="@+id/fab_close"
+        app:layout_constraintTop_toBottomOf="@+id/fab_close"
+        app:srcCompat="@drawable/svg_cart"
+        app:tint="@color/brown_4F4142" />
+</androidx.constraintlayout.widget.ConstraintLayout>

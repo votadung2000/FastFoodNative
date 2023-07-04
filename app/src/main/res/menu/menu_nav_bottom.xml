@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_bottom_home"
-        android:icon="@drawable/nav_home"
+        android:icon="@drawable/svg_home"
         android:title="Home" />
     <item
         android:id="@+id/nav_bottom_search"
-        android:icon="@drawable/nav_search"
+        android:icon="@drawable/svg_search"
         android:title="Search" />
     <item
         android:id="@+id/nav_bottom_heart"
-        android:icon="@drawable/nav_favorite"
+        android:icon="@drawable/svg_favorite"
         android:title="Heart" />
     <item
         android:id="@+id/nav_bottom_cart"
-        android:icon="@drawable/nav_cart"
+        android:icon="@drawable/svg_cart"
         android:title="Cart" />
 </menu>

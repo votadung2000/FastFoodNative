@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_intro"
+    android:background="@color/white"
     android:paddingHorizontal="@dimen/_24sdp"
     tools:context=".activity.IntroActivity">
 
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Enjoy \nEatting"
-            android:textColor="@color/white"
+            android:textColor="@color/brown_4F4142"
             android:textSize="@dimen/_32ssp"
             android:textStyle="bold" />
 
@@ -43,28 +43,31 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_12sdp"
             android:text="All the delicious food on your phone"
-            android:textColor="@color/white"
+            android:textColor="@color/brown_4F4142"
             android:textSize="@dimen/_16ssp"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:id="@+id/intro_btn_start"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_38sdp"
         android:layout_marginBottom="@dimen/_25sdp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_15sdp"
         android:background="@drawable/bg_gradient_orange"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="23dp">
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardElevation="@dimen/_3sdp"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="Let's order a meal"
-            android:textColor="@color/orange_D66607"
-            android:textSize="@dimen/_18ssp"
+            android:textColor="@color/orange_dd3d00"
+            android:textSize="@dimen/_16ssp"
             android:textStyle="bold"
             tools:ignore="MissingConstraints" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,7 @@
 package com.example.fastfoodnative.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.view.View;
 import com.example.fastfoodnative.R;
 
 public class IntroActivity extends AppCompatActivity {
-    private ConstraintLayout btnStart;
+    private CardView btnStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
