@@ -4,9 +4,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,7 +35,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ProductAdapter.ViewHolder holder, int position) {
         ProductModel productModel = listProducts.get(position);
-        if (productModel ==null){
+        if (productModel == null) {
             return;
         }
 
@@ -58,9 +60,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ConstraintLayout containerProduct;
+        RelativeLayout containerProduct;
         ImageView imgProduct;
         TextView nameProduct, priceProduct;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 

@@ -11,14 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-<!--        android:id="@+id/main_nav_bottom"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        app:itemIconSize="28dp"-->
-<!--        app:itemIconTint="@color/nav_bottom_custom"-->
-<!--        app:itemTextColor="@color/nav_bottom_custom"-->
-<!--        app:labelVisibilityMode="labeled"-->
-<!--        app:menu="@menu/menu_nav_bottom" />-->
+    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+    <!--        android:id="@+id/main_nav_bottom"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        app:itemIconSize="28dp"-->
+    <!--        app:itemIconTint="@color/nav_bottom_custom"-->
+    <!--        app:itemTextColor="@color/nav_bottom_custom"-->
+    <!--        app:labelVisibilityMode="labeled"-->
+    <!--        app:menu="@menu/menu_nav_bottom" />-->
 </RelativeLayout>
