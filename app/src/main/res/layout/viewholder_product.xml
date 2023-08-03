@@ -20,7 +20,7 @@
             android:layout_marginBottom="@dimen/_8sdp"
             android:background="@drawable/bg_viewholder_box"
             android:elevation="@dimen/_2sdp"
-            android:padding="@dimen/_6sdp">
+            android:padding="@dimen/_12sdp">
 
             <ImageView
                 android:id="@+id/vh_product_img"
