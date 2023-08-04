@@ -25,6 +25,8 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
     FloatingActionButton fabOpen, fabClose, fabFavorite, fabCart, fabAccount;
 
+
+
     private RecyclerView rccViewCategories, rccViewProducts;
     private RecyclerView.Adapter adapterCategory, adapterProduct;
 
