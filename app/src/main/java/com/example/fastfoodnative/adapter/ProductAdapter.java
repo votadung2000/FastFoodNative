@@ -1,5 +1,6 @@
 package com.example.fastfoodnative.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.fastfoodnative.R;
+import com.example.fastfoodnative.activity.DetailProductActivity;
 import com.example.fastfoodnative.model.ProductModel;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
@@ -40,7 +43,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         }
 
         holder.nameProduct.setText(productModel.getNameProduct());
-        holder.priceProduct.setText(String.valueOf(productModel.getPriceProduct()));
+
+        double convertNumber = Double.parseDouble(String.valueOf(productModel.getPriceProduct()));
+        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+        holder.priceProduct.setText(decimalFormat.format(convertNumber) + " VNĐ");
 
         String url = productModel.getImgProduct();
         Glide
@@ -49,6 +55,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                 .centerCrop()
                 .placeholder(R.drawable.svg_img)
                 .into(holder.imgProduct);
+
+        holder.cardProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(holder.itemView.getContext(), DetailProductActivity.class);
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -60,14 +74,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        RelativeLayout containerProduct;
+        CardView cardProduct;
         ImageView imgProduct;
         TextView nameProduct, priceProduct;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            containerProduct = itemView.findViewById(R.id.vh_product_container);
+            cardProduct = itemView.findViewById(R.id.vh_product_card_container);
             imgProduct = itemView.findViewById(R.id.vh_product_img);
             nameProduct = itemView.findViewById(R.id.vh_product_name);
             priceProduct = itemView.findViewById(R.id.vh_product_price);

@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:text="price"
                     android:textColor="@color/orange_FB3C00"
-                    android:textSize="@dimen/_12ssp" />
+                    android:textSize="@dimen/_9ssp" />
             </LinearLayout>
 
             <ImageView

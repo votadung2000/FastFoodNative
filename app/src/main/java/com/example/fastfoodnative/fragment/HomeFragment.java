@@ -12,6 +12,7 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.fastfoodnative.R;
 import com.example.fastfoodnative.adapter.CategoryAdapter;
@@ -20,12 +21,11 @@ import com.example.fastfoodnative.model.CategoryModel;
 import com.example.fastfoodnative.model.ProductModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
     FloatingActionButton fabOpen, fabClose, fabFavorite, fabCart, fabAccount;
-
-
 
     private RecyclerView rccViewCategories, rccViewProducts;
     private RecyclerView.Adapter adapterCategory, adapterProduct;
@@ -48,6 +48,7 @@ public class HomeFragment extends Fragment {
         rccViewProducts.setLayoutManager(gridLayoutManager);
 
         ArrayList<ProductModel> products = new ArrayList<>();
+
         products.add(new ProductModel(1, "name 1", 1, "", "", 100000, 0));
         products.add(new ProductModel(2, "name 2", 1, "", "", 100000, 0));
         products.add(new ProductModel(3, "name 3", 1, "", "", 100000, 0));
