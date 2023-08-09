@@ -1,16 +1,19 @@
 package com.example.fastfoodnative.model;
 
 public class CategoryModel {
-    int idCategory;
-    String nameCategory;
-    int statusCategory;
-    String imgCategory;
+    private int idCategory;
+    private String nameCategory;
+    private int statusCategory;
+    private String imgCategory;
 
-    public CategoryModel(int idCategory, String nameCategory, int statusCategory, String imgCategory) {
+    private boolean isHorizontal;
+
+    public CategoryModel(int idCategory, String nameCategory, int statusCategory, String imgCategory, boolean isHorizontal) {
         this.idCategory = idCategory;
         this.nameCategory = nameCategory.isEmpty() ? "" : nameCategory;
         this.statusCategory = statusCategory;
         this.imgCategory = imgCategory.isEmpty() ? "" : imgCategory;
+        this.isHorizontal = isHorizontal;
     }
 
     public int getIdCategory() {
@@ -43,5 +46,13 @@ public class CategoryModel {
 
     public void setImgCategory(String imgCategory) {
         this.imgCategory = imgCategory;
+    }
+
+    public boolean isHorizontal() {
+        return isHorizontal;
+    }
+
+    public void setHorizontal(boolean horizontal) {
+        isHorizontal = horizontal;
     }
 }

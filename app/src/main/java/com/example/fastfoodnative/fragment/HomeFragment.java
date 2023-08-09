@@ -3,6 +3,8 @@ package com.example.fastfoodnative.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +27,8 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
+    HeartFragment heartFragment;
+
     FloatingActionButton fabOpen, fabClose, fabFavorite, fabCart, fabAccount;
 
     private RecyclerView rccViewCategories, rccViewProducts;
@@ -38,9 +42,23 @@ public class HomeFragment extends Fragment {
         Mapping(view);
         ClickFabOpen();
         ClickFab();
+        NavFavorite();
         recyclerViewCategoryList(view);
         recyclerViewProductList(view);
         return view;
+    }
+
+    private void NavFavorite() {
+        fabFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.main_frame, heartFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
     }
 
     private void recyclerViewProductList(View view) {
@@ -66,13 +84,13 @@ public class HomeFragment extends Fragment {
         rccViewCategories.setLayoutManager(linearLayoutManager);
 
         ArrayList<CategoryModel> categories = new ArrayList<>();
-        categories.add(new CategoryModel(1, "name 1", 1, ""));
-        categories.add(new CategoryModel(2, "name 2", 1, ""));
-        categories.add(new CategoryModel(3, "name 3", 1, ""));
-        categories.add(new CategoryModel(4, "name 4", 1, ""));
-        categories.add(new CategoryModel(5, "name 5", 1, ""));
-        categories.add(new CategoryModel(6, "name 6", 1, ""));
-        categories.add(new CategoryModel(7, "name 7", 1, ""));
+        categories.add(new CategoryModel(1, "name 1", 1, "", true));
+        categories.add(new CategoryModel(2, "name 2", 1, "", true));
+        categories.add(new CategoryModel(3, "name 3", 1, "", true));
+        categories.add(new CategoryModel(4, "name 4", 1, "", true));
+        categories.add(new CategoryModel(5, "name 5", 1, "", true));
+        categories.add(new CategoryModel(6, "name 6", 1, "", true));
+        categories.add(new CategoryModel(7, "name 7", 1, "", true));
 
         adapterCategory = new CategoryAdapter(categories);
         rccViewCategories.setAdapter(adapterCategory);
@@ -121,7 +139,9 @@ public class HomeFragment extends Fragment {
         fabCart = view.findViewById(R.id.fab_cart);
         fabAccount = view.findViewById(R.id.fab_account);
 
-        rccViewCategories = view.findViewById(R.id.frag_home_rccView_Categories);
-        rccViewProducts = view.findViewById(R.id.frag_home_rccView_Products);
+        rccViewCategories = view.findViewById(R.id.frag_home_rccView_categories);
+        rccViewProducts = view.findViewById(R.id.frag_home_rccView_products);
+
+        heartFragment = new HeartFragment();
     }
 }

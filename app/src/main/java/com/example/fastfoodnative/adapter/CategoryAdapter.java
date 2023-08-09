@@ -17,35 +17,63 @@ import com.example.fastfoodnative.model.CategoryModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
-    List<CategoryModel> listCategories;
+public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+    private static int TYPE_CATEGORY_VERTICAL = 1;
+    private static int TYPE_CATEGORY_HORIZONTAL = 2;
+
+    private List<CategoryModel> listCategories;
 
     public CategoryAdapter(List<CategoryModel> listCategories) {
         this.listCategories = listCategories;
+        notifyDataSetChanged();
     }
 
     @NonNull
     @Override
-    public CategoryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_category, parent, false);
-        return new ViewHolder(inflate);
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        if (viewType == TYPE_CATEGORY_HORIZONTAL) {
+            View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_category, parent, false);
+            return new HorizontalViewHolder(inflate);
+        } else if (viewType == TYPE_CATEGORY_VERTICAL) {
+            View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_category_vertical, parent, false);
+            return new VerticalViewHolder(inflate);
+        } else {
+            return null;
+        }
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         CategoryModel categoryModel = listCategories.get(position);
         if (categoryModel == null) {
             return;
         }
-        holder.nameCategory.setText(categoryModel.getNameCategory());
+        if (TYPE_CATEGORY_HORIZONTAL == holder.getItemViewType()) {
+            HorizontalViewHolder horizontalViewHolder = (HorizontalViewHolder) holder;
+            horizontalViewHolder.nameCategory.setText(categoryModel.getNameCategory());
 
-        String url = categoryModel.getImgCategory();
-        Glide
-                .with(holder.itemView.getContext())
-                .load(url)
-                .centerCrop()
-                .placeholder(R.drawable.svg_img)
-                .into(holder.imgCategory);
+            String url = categoryModel.getImgCategory();
+            Glide
+                    .with(horizontalViewHolder.itemView.getContext())
+                    .load(url)
+                    .centerCrop()
+                    .placeholder(R.drawable.svg_img)
+                    .into(horizontalViewHolder.imgCategory);
+
+        } else if (TYPE_CATEGORY_HORIZONTAL == holder.getItemViewType()) {
+            VerticalViewHolder verticalViewHolder = (VerticalViewHolder) holder;
+            verticalViewHolder.nameCategoryVtc.setText(categoryModel.getNameCategory());
+
+            String url = categoryModel.getImgCategory();
+            Glide
+                    .with(verticalViewHolder.itemView.getContext())
+                    .load(url)
+                    .centerCrop()
+                    .placeholder(R.drawable.svg_img)
+                    .into(verticalViewHolder.imgCategoryVtc);
+        }
+
     }
 
     @Override
@@ -56,12 +84,36 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         return 0;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    @Override
+    public int getItemViewType(int position) {
+        CategoryModel categoryModel = listCategories.get(position);
+        if (categoryModel.isHorizontal()) {
+            return TYPE_CATEGORY_HORIZONTAL;
+        } else {
+            return TYPE_CATEGORY_VERTICAL;
+        }
+    }
+
+    public class VerticalViewHolder extends RecyclerView.ViewHolder {
+        ConstraintLayout containerCategoryVtc;
+        ImageView imgCategoryVtc;
+        TextView nameCategoryVtc;
+
+        public VerticalViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            containerCategoryVtc = itemView.findViewById(R.id.vh_category_vtc_container);
+            imgCategoryVtc = itemView.findViewById(R.id.vh_category_vtc_img);
+            nameCategoryVtc = itemView.findViewById(R.id.vh_category_vtc_name);
+        }
+    }
+
+    public class HorizontalViewHolder extends RecyclerView.ViewHolder {
         ConstraintLayout containerCategory;
         ImageView imgCategory;
         TextView nameCategory;
 
-        public ViewHolder(@NonNull View itemView) {
+        public HorizontalViewHolder(@NonNull View itemView) {
             super(itemView);
 
             containerCategory = itemView.findViewById(R.id.vh_category_container);
