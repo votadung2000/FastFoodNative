@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vh_favorite_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/_1sdp"
+    android:layout_marginBottom="@dimen/_8sdp"
+    android:padding="@dimen/_8sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_viewholder_box">
+
+        <ImageView
+            android:id="@+id/vh_favorite_img"
+            android:layout_width="@dimen/_54sdp"
+            android:layout_height="@dimen/_54sdp"
+            android:src="@drawable/svg_img"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/gray_bfbfbf" />
+
+        <TextView
+            android:id="@+id/vh_favorite_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="name"
+            android:textColor="@color/brown_4F4142"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/vh_favorite_img"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <TextView
+            android:id="@+id/vh_favorite_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="price"
+            android:textColor="@color/orange_FB3C00"
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintStart_toStartOf="@+id/vh_favorite_name"
+            app:layout_constraintTop_toBottomOf="@+id/vh_favorite_name" />
+
+        <ImageView
+            android:id="@+id/vh_favorite_favorite"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/svg_favorite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/brown_4F4142" />
+
+        <ImageView
+            android:id="@+id/vh_favorite_plus"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/svg_plus"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/vh_favorite_favorite"
+            app:tint="@color/brown_4F4142" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

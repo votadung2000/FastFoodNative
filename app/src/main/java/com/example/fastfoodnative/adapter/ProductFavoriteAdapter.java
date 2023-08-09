@@ -5,44 +5,41 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.fastfoodnative.R;
 import com.example.fastfoodnative.activity.DetailProductActivity;
-import com.example.fastfoodnative.model.ProductModel;
+import com.example.fastfoodnative.model.ProductFavoriteModel;
 
 import java.text.DecimalFormat;
 import java.util.List;
 
-public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
-    List<ProductModel> listProducts;
+public class ProductFavoriteAdapter extends RecyclerView.Adapter<ProductFavoriteAdapter.ViewHolder> {
+    private List<ProductFavoriteModel> listProducts;
 
-    public ProductAdapter(List<ProductModel> listProducts) {
+    public ProductFavoriteAdapter(List<ProductFavoriteModel> listProducts) {
         this.listProducts = listProducts;
         notifyDataSetChanged();
     }
 
     @NonNull
     @Override
-    public ProductAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_product, parent, false);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_product_favorite, parent, false);
         return new ViewHolder(inflate);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductAdapter.ViewHolder holder, int position) {
-        ProductModel productModel = listProducts.get(position);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        ProductFavoriteModel productModel = listProducts.get(position);
         if (productModel == null) {
             return;
         }
-
         holder.nameProduct.setText(productModel.getNameProduct());
 
         double convertNumber = Double.parseDouble(String.valueOf(productModel.getPriceProduct()));
@@ -64,6 +61,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                 holder.itemView.getContext().startActivity(intent);
             }
         });
+
     }
 
     @Override
@@ -76,16 +74,16 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         CardView cardProduct;
-        ImageView imgProduct;
         TextView nameProduct, priceProduct;
+        ImageView imgProduct;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            cardProduct = itemView.findViewById(R.id.vh_product_card_container);
-            imgProduct = itemView.findViewById(R.id.vh_product_img);
-            nameProduct = itemView.findViewById(R.id.vh_product_name);
-            priceProduct = itemView.findViewById(R.id.vh_product_price);
+            cardProduct = itemView.findViewById(R.id.vh_favorite_card);
+            nameProduct = itemView.findViewById(R.id.vh_favorite_name);
+            priceProduct = itemView.findViewById(R.id.vh_favorite_price);
+            imgProduct = itemView.findViewById(R.id.vh_favorite_img);
         }
     }
 }

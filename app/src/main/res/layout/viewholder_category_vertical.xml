@@ -13,8 +13,9 @@
 
     <ImageView
         android:id="@+id/vh_category_vtc_img"
-        android:layout_width="@dimen/_23sdp"
-        android:layout_height="@dimen/_23sdp"
+        android:layout_width="@dimen/_27sdp"
+        android:layout_height="@dimen/_27sdp"
+        android:scaleType="centerCrop"
         android:src="@drawable/svg_img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

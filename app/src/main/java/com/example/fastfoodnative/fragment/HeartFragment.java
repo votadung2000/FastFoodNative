@@ -14,13 +14,17 @@ import android.widget.ImageView;
 
 import com.example.fastfoodnative.R;
 import com.example.fastfoodnative.adapter.CategoryAdapter;
+import com.example.fastfoodnative.adapter.ProductAdapter;
+import com.example.fastfoodnative.adapter.ProductFavoriteAdapter;
 import com.example.fastfoodnative.model.CategoryModel;
+import com.example.fastfoodnative.model.ProductFavoriteModel;
+import com.example.fastfoodnative.model.ProductModel;
 
 import java.util.ArrayList;
 
 public class HeartFragment extends Fragment {
-    private RecyclerView rccViewCategories;
-    private RecyclerView.Adapter adapterCategory;
+    private RecyclerView rccViewCategories,rccViewProducts;
+    private RecyclerView.Adapter adapterCategory, adapterProduct;
 
     private ImageView imgBack;
 
@@ -31,10 +35,28 @@ public class HeartFragment extends Fragment {
 
         Mapping(view);
         recyclerViewCategoryList(view);
-
+        recyclerViewProductList(view);
         ClickBack();
 
         return view;
+    }
+
+    private void recyclerViewProductList(View view) {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext());
+        rccViewProducts.setLayoutManager(linearLayoutManager);
+
+        ArrayList<ProductFavoriteModel> products = new ArrayList<>();
+
+        products.add(new ProductFavoriteModel(1, "name 1", 1, "", "", 100000, 0));
+        products.add(new ProductFavoriteModel(2, "name 2", 1, "", "", 100000, 0));
+        products.add(new ProductFavoriteModel(3, "name 3", 1, "", "", 100000, 0));
+        products.add(new ProductFavoriteModel(4, "name 4", 1, "", "", 100000, 0));
+        products.add(new ProductFavoriteModel(5, "name 5", 1, "", "", 100000, 0));
+        products.add(new ProductFavoriteModel(6, "name 6", 1, "", "", 100000, 0));
+        products.add(new ProductFavoriteModel(7, "name 7", 1, "", "", 100000, 0));
+
+        adapterProduct = new ProductFavoriteAdapter(products);
+        rccViewProducts.setAdapter(adapterProduct);
     }
 
     private void ClickBack() {
@@ -66,6 +88,7 @@ public class HeartFragment extends Fragment {
 
     private void Mapping(View view) {
         rccViewCategories = view.findViewById(R.id.frag_heart_rccView_categories);
+        rccViewProducts = view.findViewById(R.id.frag_heart_rccView_products);
 
         imgBack = view.findViewById(R.id.frag_heart_img_back);
     }
