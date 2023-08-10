@@ -28,6 +28,7 @@ import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
     HeartFragment heartFragment;
+    CartFragment cartFragment;
 
     FloatingActionButton fabOpen, fabClose, fabFavorite, fabCart, fabAccount;
 
@@ -43,9 +44,23 @@ public class HomeFragment extends Fragment {
         ClickFabOpen();
         ClickFab();
         NavFavorite();
+        NavCart();
         recyclerViewCategoryList(view);
         recyclerViewProductList(view);
         return view;
+    }
+
+    private void NavCart() {
+        fabCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.main_frame, cartFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
     }
 
     private void NavFavorite() {
@@ -143,5 +158,6 @@ public class HomeFragment extends Fragment {
         rccViewProducts = view.findViewById(R.id.frag_home_rccView_products);
 
         heartFragment = new HeartFragment();
+        cartFragment = new CartFragment();
     }
 }

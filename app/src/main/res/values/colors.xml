@@ -2,6 +2,7 @@
 <resources>
     <color name="orange_FB3C00">#FB3C00</color>
     <color name="orange_FFBB33">#FFBB33</color>
+    <color name="orange_F8C41C">#F8C41C</color>
     <color name="orange_ffb31a">#ffb31a</color>
     <color name="orange_D66607">#D66607</color>
     <color name="orange_cc3a00">#cc3a00</color>
@@ -22,5 +23,7 @@
     <color name="white_ECE9E6">#ECE9E6</color>
 
     <color name="brown_4F4142">#4F4142</color>
+
+    <color name="pink_FE5D5D">#FE5D5D</color>
 
 </resources>
